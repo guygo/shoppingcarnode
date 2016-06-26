@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 
 
-mongoose.connect('localhost:27017/shopping');
+mongoose.connect('mongodb://guy:zxccxz123@ds023704.mlab.com:23704/shoppingdb');
 
 
 var products=[
@@ -48,7 +48,7 @@ var products=[
 
 function seed(){
     var done=0;
-    
+
     for(var i=0;i<products.length;i++){
     products[i].save(function(err,result){
     if(done===products.length)
