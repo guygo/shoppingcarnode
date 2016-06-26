@@ -19,7 +19,9 @@ var app = express();
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
-mongoose.connect('mongodb://guy:zxccxz123@ds023704.mlab.com:23704/shoppingdb');
+
+var connectionstring=process.env.OPENSHIFT_MONGODB_DB_URL||'mongodb://guy:zxccxz123@ds023704.mlab.com:23704/shoppingdb';
+mongoose.connect(connectionstring);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
